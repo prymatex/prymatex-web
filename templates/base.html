@@ -1,0 +1,64 @@
+{% load cms_tags sekizai_tags %}
+<html>
+  <head>
+      <title>{%block title%}{%if title%}{{title}}{%else%}Prymatex{%endif%}{%endblock%}</title>
+      {% addtoblock "css" %}
+      
+      {# CSS Framework #}
+      <link rel="stylesheet" href="{{STATIC_URL}}css/blueprint/screen.css" type="text/css" media="screen, projection">
+      <link rel="stylesheet" href="{{STATIC_URL}}css/blueprint/print.css" type="text/css" media="print"> 
+      <!--[if lt IE 8]>
+          <link rel="stylesheet" href="{{STATIC_URL}}css/blueprint/ie.css" type="text/css" media="screen, projection">
+      <![endif]-->
+      
+      {# Custom Base CSS #}
+      <style type="text/css" media="screen">
+          
+          body {
+              font-family: Arial, "MS Trebuchet", sans-serif;
+              font-size: 14px;
+          }
+      </style>
+      {% endaddtoblock %}
+      {% block extraheaders %}
+      
+      {% endblock %}
+      {% render_block "css" %}
+  </head>
+  <body>
+      {% block body %}
+      <div class="container">
+            <!-- Header -->
+            <div class="span-20">
+                &nbsp;
+                <h1>Prymatex Website</h1>
+                
+            </div>
+            <div class="span-4 last header-left">
+                Login 
+            </div>
+            <hr/>
+            <div class="span-24 last">
+                {% block menu %}
+                {% load cache menu_tags %}
+                <ul class="navigation-menu">
+                    {% show_menu 0 100 100 100 %}
+                </ul>
+                {% endblock %}
+            </div>
+            <div class="span-18">
+                {% placeholder base_content %}
+                {% block base_content%}&nbsp;{% endblock %}
+            </div>
+            <div class="span-6 last">
+                Menu lateral
+            </div>
+        
+      </div>
+            
+      {% endblock %} {# body #}
+  </body>
+  <!-- Scripts -->
+  {% render_block "js" %}
+  <!-- End Scripts -->
+</html>

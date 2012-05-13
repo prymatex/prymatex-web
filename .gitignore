@@ -1,0 +1,7 @@
+fabsettings.py
+local_*,py
+*.pyc
+*~
+host_*.py
+.pmxproject
+.*
