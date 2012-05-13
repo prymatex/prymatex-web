@@ -1,0 +1,45 @@
+{% extends "base_html5.html" %}
+
+
+{% block extraheaders %}
+	<link type="text/css" href="{{MEDIA_URL}}css/blog-style.css" rel="stylesheet" />
+{% endblock %}
+
+{% block features %}
+	<script type="text/javascript">$(window).load(function() {set_nav_active('nav_blog');})</script>
+{% endblock %}
+
+
+{% block miga_de_pan %}
+	{% if list_tags %} 
+		<div class="miga_de_pan">/<a href="/" title="Home">home</a>/<a href="/blog/" title="The blog">blog</a>/tag/{{tag.nombre}}</div>
+	{% else %}
+		{% if list_categoryes %}
+			<div class="miga_de_pan">/<a href="/" title="Home">home</a>/<a href="/blog/" title="The blog">blog</a>/category/{{category}}</div>
+		{% else %}
+			<div class="miga_de_pan">/<a href="/" title="Home">home</a>/blog/</div>
+		{% endif %}
+	{% endif %}
+{% endblock %}
+
+
+{% block content %}
+	
+	<div id="columnas">
+		<div id="col_0"><!-- COL 0 -->
+			{% block col_0 %} {% endblock %}
+		</div>
+
+		<div id="col_1"><!-- COL 1 -->
+		{% block col_1 %}
+			{% load show_categorias %}
+			{% mostrar_categorias %}
+			
+			{% load show_tags %}
+			{% show_all_tags %}
+			
+		{% endblock %}
+		</div>
+	
+{% endblock %}
+

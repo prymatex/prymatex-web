@@ -1,0 +1,25 @@
+
+<div div id="paginador">
+
+{% if page_obj.has_previous %}
+	{% ifnotequal page_obj.previous_page_number 1 %}  
+        <a class="paginador-link" href="?page=1" class="paginador-inicio" title="The Start">&lt;</a>&nbsp;
+    {% endifnotequal %}
+    
+	<a class="paginador-link" href="?page={{page_obj.previous_page_number}}">{{page_obj.previous_page_number}}</a>&nbsp;
+	 
+{% endif %}
+
+
+    <span class="paginador-page-actual">{{page_obj.number}}</span>       
+
+{% if page_obj.has_next %}
+     <a class="paginador-link" href="?page={{page_obj.next_page_number}}">{{page_obj.next_page_number}}</a>&nbsp;  
+    
+    {% ifnotequal page_obj.next_page_number paginator.num_pages %}  
+        <a class="paginador-link" href="?page={{paginator.num_pages}}" title="The End">&gt;</a>&nbsp;
+    {% endifnotequal %}
+
+{% endif %}
+
+</div>

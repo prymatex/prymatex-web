@@ -1,0 +1,70 @@
+{% load extra_tagging_tags %}
+{% load comments %}
+
+<div class="widget">
+	<div class="widget-title"> Últimos Posts </div>
+	<div class="widget-contentx" style="padding:10px;">
+	
+	
+	{% if lista %}
+	
+		<img src="/site_media/img/ajax-loader.gif" alt="Cargando..." id="img_loading_carrusel_post"> 
+		<div id="carrusel-posts"  style="width: 300px; display:none;">
+			<ol>
+				{% for post in lista %}
+					<li class="item"> 
+							{% if post.category %}
+									<a style="float:left; margin-right:10px;margin-top:-5px;"  href="{{post.cateogry.get_absolute_ur}}" title="Categor&iacute;a {{post.category.nombre}}">
+											<img src="{{post.category.get_image_url}}" alt="{{post.cateogry.nombre}}">
+									</a> 
+							{% endif %}
+							
+							<a  href="{{post.get_absolute_url}}" title="Leer: {{post.titulo}}" style="color:#0092E8; font-size: 20px;">
+								{{ post.titulo }}
+							</a>
+							<div class="divider"></div>
+							<p style="margin:5px;">
+							Publicado por {{post.autor}} el d&iacute;a {{ post.pub_date|date:"j M Y" }} en la categoría 
+							
+							<a  href="{{post.cateogry.get_absolute_ur}}" title="Categor&iacute;a {{post.category.nombre}}">
+								{{post.category.nombre}}
+							</a>
+							
+							</p>
+							<p style="margin:5px;">
+							<strong>Tags: </strong>{% show_tags_for post %}
+							</p>
+					</li>
+				{% endfor %}
+			</ol>
+		</div>
+		<script type="text/javascript">
+			(function () {
+				var carousel;
+
+				YAHOO.util.Event.onDOMReady(function (ev) {
+					var carousel = new YAHOO.widget.Carousel("carrusel-posts", {
+							animation:{ speed: 0.5 },  
+							isCircular: true, 
+							numVisible: 1,
+							autoPlayInterval: 4000,
+							isVertical: false,
+						});
+								
+					carousel.render(); 
+					carousel.show();   
+					carousel.startAutoPlay();
+					$("carrusel-posts").show();
+					$("img_loading_carrusel_post").hide();
+				});
+			})();
+		</script>
+
+	{% else %}
+	    No hay posts..
+	{% endif %}
+	</div>
+	<div class="widget-footerx"> </div>
+</div>
+
+	

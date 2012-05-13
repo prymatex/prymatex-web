@@ -1,0 +1,21 @@
+{% extends "base_html5.html" %}
+
+{% block title %}
+	- {{ flatpage.title }}
+{% endblock %}
+
+{% block miga_de_pan %}
+			<div class="miga_de_pan">/<a href="/" title="Home">home</a>/{{flatpage.title}}</div>
+{% endblock %}
+		
+{% block slider_header %}{% endblock%}
+{% block features %}{% endblock %}
+
+
+{% block content %}
+	<div class="flat_page_content">
+		{{ flatpage.content }}
+	</div>
+{% endblock %}
+
+

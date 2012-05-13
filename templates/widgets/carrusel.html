@@ -1,0 +1,35 @@
+<div id="featured" class="body redondeado">
+           <div id="slider-wrapper">
+	            <div id="slider" class="nivoSlider">
+	                <img src="{{MEDIA_URL}}img/slide/1.png" alt="" title="Prymatex looks so pretty and yet powerful" />
+	                <img src="{{MEDIA_URL}}img/slide/2.png" alt="" title="Run any code inside the editor :-)" />
+	                <img src="{{MEDIA_URL}}img/slide/3.png" alt="" title="Prymatex use the power of QT4" />
+	                <img src="{{MEDIA_URL}}img/slide/4.png" alt="" title="Prymatex configuration"/>
+	                <img src="{{MEDIA_URL}}img/slide/5.png" alt="" title="Prymatex file browser"/>
+	                {% comment %}
+	                <a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>
+	                <img src="images/walle.jpg" alt="" />
+	                <img src="images/nemo.jpg" alt="" title="#htmlcaption" />
+	                {% endcomment %}
+	            </div>
+	            <div id="htmlcaption" class="nivo-html-caption">
+	                <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+	            </div>
+        	<div style="clear:both;"></div>
+        	</div>
+</div>
+
+<script type="text/javascript">
+		    $(window).load(function() {
+		        $('#slider').nivoSlider({
+					directionNav: true,
+					controlNav: true,
+					effect: 'random',
+					slices: 9,				
+					animSpeed: 550,				
+					pauseTime: 3000, 			
+					pauseOnHover: true, 
+					captionOpacity: 0.9 
+				});
+		    });
+		    </script>   

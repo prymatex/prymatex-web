@@ -1,0 +1,18 @@
+<div class="widget">
+	<div class="widget-title"> Últimos Comentarios </div>
+	<div class="widget-content">
+	
+	{% if comentarios %}
+		<ul style>
+		{% for c in comentarios %}
+			<li> <a href="{{c.content_object.get_absolute_url}}#c{{c.id}}" title="{{ c }}" > {{c|truncatewords:"5"}} </a> </li>
+		{% endfor %}
+		</ul>
+	{% else %}
+	    No hay comentarios...
+	{% endif %}
+	</div>
+	<div class="widget-footer"> </div>
+</div>
+
+	

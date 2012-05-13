@@ -1,0 +1,13 @@
+<div class="widget">
+
+	<div class="widget-title">Tags</div>
+	<div class="widget-contentx">
+		<div class="tag-links">
+		<ul>
+			{% for tag in tags %}
+			<li><a href="/blog/tag/{{tag.slug}}/">{{tag}}</a></li>
+			{% endfor%}
+		</ul>
+		</div>
+	</div>
+</div>

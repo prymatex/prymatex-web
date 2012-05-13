@@ -1,0 +1,61 @@
+{% extends "blog/base_blog.html" %}
+
+
+{% block col_0 %}
+
+
+{% for post in object_list %}
+			<div class="blogpost">
+				<div class="blogpost-title">
+						<img width="50px" src="{{post.get_autor_avatar}}" class="user_avatar_read_post">
+						<a id="titulo-post-{{post.id}}" href="{{ post.get_absolute_url }}" >
+							{{ post.titulo }}
+						</a>
+						<span>
+							{{ post.pub_date|date:"j/m/y @ H:i" }} por {{post.autor}}
+						</span>
+						<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+								
+				
+					
+				<div class="blogpost-content">
+					<div class="blogpost-descripcion">
+						{{ post.texto|truncatewords_html:50|safe}} 
+					</div>
+										
+					<div class="divider"></div>
+							
+					
+					
+					<div class="blogpost-meta">
+						<div class="tag-links">
+							<ul>
+								{% for tag in post.tags.all %}
+								<li><a href="/blog/tag/{{tag.slug}}/">{{tag}}</a></li>
+								{% endfor%}
+							</ul>
+						</div>
+						<div class="clear"></div>
+						<br>
+							{{ post.lecturas}} lecturas | Creado por  <b>{{ post.autor }}</b> |
+							{% if post.category %}
+								categor&iacute;a:   
+								<a href="{{post.get_category_url}}" id="category-post-{{post.id}}">
+									{{post.category.nombre}}
+								</a> 
+							{% endif %}
+							<a  style="float:right;" id="leer-mas-post-{{post.id}}"  href="{{ post.get_absolute_url }}">Leer m&aacute;s...</a>
+					</div>
+					
+				</div>
+				<div style="clear:both;"></div>
+			</div>
+			
+{% endfor %}
+
+{% include "comun/paginador.html" %}
+
+
+{% endblock %}

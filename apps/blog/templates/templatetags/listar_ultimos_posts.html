@@ -1,0 +1,7 @@
+{% load ultimos_posts %}
+{% obtener_ultimos_posts "2" %}
+<ul>
+	{% for post in lista_ultimos_posts %}
+		<li> {{ post.titulo }} </li>
+	{% endfor %}
+</ul>

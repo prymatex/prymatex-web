@@ -1,0 +1,73 @@
+{% extends "base_html5.html" %}
+
+
+{% block features %} 
+	{% include "widgets/carrusel.html" %}
+{% endblock %}
+
+{% block content %}
+
+<script type="text/javascript">$(window).load(function() {set_nav_active('nav_home');})</script>
+
+
+	<h1 class="home-title"> Prymatex Text Editor </h1>
+	<h3> A <a href="http://www.riverbankcomputing.co.uk/software/pyqt/intro" target="_blank">PyQt</a> based 
+
+	<a href="http://macromates.com/" target="_blank">TextMate</a> clone</h3>
+	<div id="columnas">
+	<div id="col_0"><!-- COL 0 -->
+	
+	 	<h2>Features:</h2> 
+		   	<ul> 
+		        <li>TextMate Bundle Support</br> 
+		        <ul> 
+		        <li>Snippets</li> 
+		        <li>Commands</li> 
+		        <li>Syntax Highlighting</li> 
+		        </ul> 
+		        </li> 
+		    </ul> 
+	    
+	    <h2>Release Schedule:</h2> 
+			<ul class="release_sched"> 
+			    <li><em>Alpha</em> May 25th</li> 
+			    <li><em>Beta</em> June 20th</li> 
+			    <li><em>RC1</em> July 9th</li> 
+			    <li><em>1.0</em> November 5th</li> 
+			</ul> 
+	    
+	    <h2>Authors:</h2> 
+			<ul>
+				<li>V4n - Diego van Haaster</li> 
+				<li>D3f0 - Nahuel Defossé</li>
+			</ul> 
+		
+		<h2>Contributors:</h2> 
+			<ul>
+				<li>0rg - Pablo Petenello</li>
+                <li>Eka - Esteban Feldman</li> 
+				<li>WalMac - Walter Macedo</li>
+			</ul>
+	 
+	    <h2>Download:</h2> 
+	    <p> 
+	      You can download this project in either
+	      <a href="https://github.com/prymatex/prymatex/zipball/master">zip</a> or
+	      <a href="https://github.com/prymatex/prymatex/tarball/master">tar</a> formats.
+	    </p> 
+	    <p>You can also clone the project with <a href="http://git-scm.com">Git</a> 
+	      by running:
+	      <pre style="background-color:#555555; color:#ffffff;padding:5px;">$ git clone git://github.com/prymatex/prymatex.git</pre> 
+	    </p> 
+		</div><!--  end COL_0 -->
+	
+	
+		<div id="col_1">
+			{% include "widgets/twitter.html" %}
+			{% include "widgets/ultimos_comentarios.html" %}
+		</div><!--  END COL_1 -->
+	
+	
+	<div style="clear:both;"></div>
+	</div>
+{% endblock %}

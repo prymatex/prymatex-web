@@ -1,0 +1,24 @@
+<div class="widget">
+	<div class="widget-title"> Categorías </div>
+	
+	<div class="widget-content">
+		
+		<div style="clear: both;"></div>
+		{% if categorias %}
+			<div id="contenedor-listado-categoria">
+				<ul>
+				{% for categoria, cantidad in categorias %}
+						<li>
+							<a href="{{categoria.get_absolute_url}}">
+								 &raquo; {{categoria}} ({{cantidad}})
+							</a>
+						</li> 
+				{% endfor %}
+				</ul>
+			</div>
+		{% endif %}
+	</div>
+	<div class="widget-footer"></div>
+			
+			
+</div>

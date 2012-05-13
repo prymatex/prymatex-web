@@ -1,0 +1,18 @@
+<div class="widget">
+	<div class="widget-title"> Últimos Posts </div>
+	<div class="widget-content">
+	
+	{% if lista %}
+		<ul>
+		{% for post in lista %}
+			<li> <a href="{{ post.get_absolute_url }}" title="{{ post.titulo }}" > {{post.titulo}} </a> </li>
+		{% endfor %}
+		</ul>
+	{% else %}
+	    No hay posts..
+	{% endif %}
+	</div>
+	<div class="widget-footer"> </div>
+</div>
+
+	

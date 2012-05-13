@@ -1,0 +1,37 @@
+<div class="widget" id="widget_comentarios">
+	<div class="widget-title">Ultimos comentarios</div>
+	<div class="widget-contentx">
+		<div id="recentcomments" class="dsq-widget">
+			<script type="text/javascript" src="http://prymatex.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=42&excerpt_length=200"></script>
+			
+			<script type="text/javascript">
+			
+			 $(window).load(function() {
+				 
+				 var comentarios = document.getElementsByClassName('dsq-widget-item');
+				 jQuery.each(comentarios, function(index, value){
+					//le agregamos el target _blank a los links
+					for(i=0;i<2;i++){
+						value.children[i].target="_blank"
+				  }
+				 });
+				 
+				 var meta_info = document.getElementsByClassName('dsq-widget-meta');
+		 		 jQuery.each(meta_info, function(index, meta_ele){ 
+					  //if(index==0){ $(link).remove(); }
+					  
+					  //console.log(meta_ele.children);
+					  $(meta_ele.children[0]).remove();
+					  
+					  //este es el link del comentario
+					  meta_ele.children[0].innerHTML="Leer comentario";
+					  $(meta_ele).show();
+		 		 });
+		 		
+		 		 
+			 });
+			</script> 
+		</div>
+	</div>
+	<div class="widget-footer"></div>
+</div>
